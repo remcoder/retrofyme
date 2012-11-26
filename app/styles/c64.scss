@@ -1,0 +1,43 @@
+@font-face{
+    font-family: 'c64';
+    src: url('fonts/C64_Pro_v1.0-STYLE.eot');
+    src: url('fonts/C64_Pro_v1.0-STYLE.eot?#iefix') format('embedded-opentype'),
+         url('fonts/C64_Pro_v1.0-STYLE.woff') format('woff'),
+         url('fonts/C64_Pro_v1.0-STYLE.ttf') format('truetype')
+}
+
+.Black { color: rgb(0,0,0); }
+.White { color: rgb(255,255,255); }
+.Red { color: rgb(224,64,64); }
+.Cyan { color: rgb(96,255,255); }
+.Magenta { color: rgb(224,96,224); }
+.Green { color: rgb(64,224,64); }
+.Blue { color: rgb(64,64,224); }
+.Yellow { color: rgb(255,255,64); }
+.Orange { color: rgb(224,160,64); }
+.Brown { color: rgb(156,116,72); }
+.Pink { color: rgb(250,160,160); }
+.DarkGrey { color: rgb(84,84,84); }
+.Grey { color: rgb(136,136,136); }
+.LightGreen { color: rgb(160,160,160); }
+.LightBlue { color: rgb(160,160,255); }
+.LGrey { color: rgb(192,192,192); }
+
+$black: rgb(0,0,0);
+$white: rgb(255,255,255);
+$red: rgb(224,64,64);
+$cyan: rgb(96,255,255);
+$magenta: rgb(224,96,224);
+$green: rgb(64,224,64);
+$blue: rgb(64,64,224);
+$yellow: rgb(255,255,64);
+$orange: rgb(224,160,64);
+$brown: rgb(156,116,72);
+$pink: rgb(250,160,160);
+$darkgrey: rgb(84,84,84);
+$grey: rgb(136,136,136);
+$lightgreen: rgb(160,160,160);
+$lightblue: rgb(160,160,255);
+$lgrey: rgb(192,192,192);
+
+
