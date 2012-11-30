@@ -2,36 +2,7 @@
 (function($) {
   "use strict";
 
-  var Retrofy = function(palette) {
-
-    var colors = Retrofy.Colors[palette];
-    if (!colors)
-      throw new Error("palette '{p}' not found".format({p:palette}));
-
-    var weights;
-    var threshhold = 2;
-
-    function setPalette(palette) {
-      init(palette);
-    }
-
-    function createWeights () {
-      var weights = {};
-      _.each(colors, function(v, k) { weights[k] = 1; });
-      return weights;
-    }
-
-    function getColorsAndWeights() {
-      var result = {};
-      _.each(colors, function(color, key) {
-        color.key = key;
-        if (!color.name)
-          color.name = key;
-        result[key] = { color: color, weight : weights[key] } ;
-      });
-
-      return result;
-    }
+  var Retrofy = function(context) {
 
     function retrofy(element) {
       var $element = $(element);
@@ -233,11 +204,11 @@
       var c64_color = null;
       var min_error = Infinity;
 
-      for (var c in colors)
+      for (var c in context.palette)
       {
-        var color = colors[c];
+        var color = context.palette[c];
         var guess = color.rgb;
-        var w = weights[c];
+        var w = context.weights[c];
         //var abs = Math.sqr;
         var dr = red - guess[0];
         var dg = green - guess[1];
@@ -250,7 +221,7 @@
           min_error = error;
         }
 
-        if (error < threshhold)
+        if (error < context.threshhold)
         {
           break;
         }
@@ -259,30 +230,10 @@
       return { color: c64_color, error:min_error, earlyExit : c };
     }
 
-    function setWeight(key, value) {
-      weights[key] = value;
-    }
-
-    function setThreshold(t) {
-      threshhold = t*t;
-    }
-
-    function init(palette) {
-      colors = Retrofy.Colors[palette];
-      weights = createWeights();
-    }
-
-    init(palette);
-
     return {
       convertColor : convertColor,
       convertImageData: convertImageData,
-      getColorsAndWeights :  getColorsAndWeights, // TODO : not expose this as immutable
-      getPalette : function() { return palette; },
-      retrofy : retrofy,
-      setPalette : setPalette,
-      setThreshold : setThreshold,
-      setWeight : setWeight
+      retrofy : retrofy
     };
   };
 

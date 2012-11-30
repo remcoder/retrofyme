@@ -62,8 +62,9 @@
                 $video.toggle();
                 $target.toggle();
             });
-            var retrofy = new Retrofy("C64");
-            var d = new Retrofy.Dashboard($(), retrofy);
+            var context = new Context();
+            var retrofy = new Retrofy(context);
+            var d = new Retrofy.Dashboard(context);
             Webcam.capture(function(imgData) {
                 retrofy.convertImageData(imgData);
                 targetCtx.putImageData(imgData,0,0);

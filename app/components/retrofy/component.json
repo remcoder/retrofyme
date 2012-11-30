@@ -11,7 +11,7 @@
   "readmeFilename": "README",
   "_id": "Retrofy@0.0.1",
   "description": "convert the font and colors of a webpage to give it that good ol' 8-bit look we so love :-P",
-  "commit": "b59487025a05c4ffca46420a0b0c946c70b97e5b",
+  "commit": "dd3a522345083f0fabce58cd2554ea5365e933f6",
   "repository": {
     "type": "git",
     "url": "git://github.com/remcoder/retrofy"

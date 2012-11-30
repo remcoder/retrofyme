@@ -17,6 +17,7 @@ module.exports = function(grunt) {
       files: [
           'js/zepQuery.js',
           'js/utils.js',
+          'js/context.js',
           'js/retrofy.js',
           'js/Retrofy.Colors.C64.js',
           'js/Retrofy.Colors.NES.js',

@@ -3,7 +3,9 @@
 (function ($) {
   "use strict";
 
-  function Dashboard($elements, retrofy) {
+  function Dashboard(context, render) {
+
+    render = render || function() {};
 
     var $dashboard, $button, $controls,
       debug = false,
@@ -11,9 +13,6 @@
 
     var colorControllers = [];
 
-    var labels = {};
-    labels.palette = retrofy.getPalette();
-    // dat.gui.js
     var gui = new dat.GUI({ autoPlace: false });
 
     function slideDown() {
@@ -42,15 +41,9 @@
 
     //console.log(colorsAndWeights);
 
-    function createColorController(colorAndWeight) {
-      var label = colorAndWeight.color.name;
-      var controller = gui.add(labels, label , 0, 3);
-      var key = colorAndWeight.color.key;
-      controller.onChange(_.throttle(function(value) {
-        //console.log("update ",key , value);
-        retrofy.setWeight(key,value);
-        $elements.retrofy();
-      },200));
+    function createColorController(key) {
+      var controller = gui.add(context.weights, key , 0, 3);
+      controller.onChange(_.throttle(render, 200));
 
       return controller;
     }
@@ -78,41 +71,36 @@
 
     $button.click(toggleDashboard);
 
-    function initColorSettings() {
-      colorControllers = [];
-      var colorsAndWeights = retrofy.getColorsAndWeights();
-      _.each(colorsAndWeights, function(obj) {
-        labels[obj.color.name] = 1;
+    function resetColorSettings() {
+      _.each(colorControllers, function(contr) {
+        gui.remove(contr);
       });
 
-      for (var key in colorsAndWeights) {
-        var c = createColorController( colorsAndWeights[key] );
+      colorControllers = [];
+
+      _.each(context.palette, function(color, key) {
+        context.weights[key] = 1;
+      });
+
+      for (var key in context.palette) {
+        var c = createColorController( key );
         colorControllers.push(c);
       }
     }
 
-
-
-    var paletteController = gui.add(labels, "palette" , ["C64", "NES", "ZXSpectrum"] );
+    var paletteController = gui.add({ palette: null }, "palette" , ["C64", "NES", "ZXSpectrum"] );
     paletteController.onChange(function(value) {
-      retrofy.setPalette(value);
+      context.palette = Retrofy.Colors[value];
 
-      _.each(colorControllers, function(contr) {
-        gui.remove(contr);
-      });
-      initColorSettings();
-      $elements.retrofy();
+      resetColorSettings();
+
+      render();
     });
 
-     labels.threshhold = 1;
+    var threshholdController = gui.add(context, "threshold" , 0, 88);
+    threshholdController.onChange(_.throttle(render, 200));
 
-    var threshholdController = gui.add(labels, "threshhold" , 0, 88);
-    threshholdController.onChange(function(value) {
-      retrofy.setThreshold(value);
-      $elements.retrofy();
-    });
-
-    initColorSettings();
+    resetColorSettings();
     $dashboard.show();
     slideDown();
 
