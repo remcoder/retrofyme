@@ -1,0 +1,11 @@
+- added NES and ZX Spectrum color palettes. You can specify the 'palette' parameter to be either: 'C64', 'NES', 'ZXSpectrum'
+- better fallback to Zepto if jQuery is not included
+- Retrofy is no longer a singleton. Retrofy.Retrofy became a constructor.
+
+09-14-2012
+- add optional dashboard to tweak color sensitivities
+
+??-??-??
+- support background images
+- remove dependency on jquery and use zepto
+

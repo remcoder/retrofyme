@@ -1,0 +1,19 @@
+{
+  "name": "retrofy",
+  "version": "0.0.0",
+  "main": [
+    "dist/jquery.retrofy.js"
+  ],
+  "dependencies": {
+    "jquery": ">=1.4.0"
+  },
+  "readme": "# Retrofy\nconvert the font and colors of a webpage to give it that good ol' 8-bit look we so love :-P ",
+  "readmeFilename": "README",
+  "_id": "Retrofy@0.0.1",
+  "description": "convert the font and colors of a webpage to give it that good ol' 8-bit look we so love :-P",
+  "commit": "b59487025a05c4ffca46420a0b0c946c70b97e5b",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/remcoder/retrofy"
+  }
+}

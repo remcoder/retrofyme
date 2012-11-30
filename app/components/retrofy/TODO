@@ -1,0 +1,25 @@
+# TODO
+
+- fix palette option in dat.GUI (recreate all the controllers)
+
+- dashboard should have previews of the colors used.
+- fix images that are scaled with a width or height attribute
+- support colors with an alpha channel
+- gradients?
+- chrome plugin version? (bookmarklet suffers from x-domain restrictions)
+
+it should drop:
+- border radius (because square is more retro! :D)
+
+- pass options to retrofy plugin:
+  - blockSize
+
+- rewrite bookmarkloader in coffeescript and send pull request for callback
+
+- Konami code version
+
+improvements
+- get median color?
+
+
+
