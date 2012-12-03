@@ -46,15 +46,20 @@
         <script src="scripts/webcam.js"></script>
         <script src="components/retrofy/dist/jquery.retrofy.min.js"></script>
         <script type="text/javascript">
-            var $video = $(Webcam.getVideo())
+
+            // TODO: get WxH from webcam
+            Webcam.setSize(640, 480);
+
+            var $video = $(Webcam.getVideoElement())
                 .attr("title", "click to retrofy")
                 .hide();
             $("#video-placeholder").replaceWith($video);
 
-            var $target = $("#target")
-                .attr("title", "click for original");
-            $target[0].width = Webcam.width();
-            $target[0].height = Webcam.height();
+            var $target = $("#target").attr("title", "click for original");
+            var size = Webcam.getSize();
+            $target[0].width = size.width;
+            $target[0].height = size.height;
+
             var targetCtx = $target[0].getContext("2d");
 
             $(".screen-main").click(function() {
@@ -65,6 +70,7 @@
             var context = new Context();
             var retrofy = new Retrofy(context);
             var d = new Retrofy.Dashboard(context);
+
             Webcam.capture(function(imgData) {
                 retrofy.convertImageData(imgData);
                 targetCtx.putImageData(imgData,0,0);
@@ -75,6 +81,7 @@
             }
 
             $(".create-snapshot").click(snapshot);
+
         </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

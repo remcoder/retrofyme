@@ -17,15 +17,12 @@ var Webcam = function() {
      */
     function logError(err) { if(console && console.log) console.log('Error!', err); return false; }
 
-    /**
-     * Sets the video dimension
-     */
-    function setVideoDimension(width, height) {
+    function setSize(width, height) {
         video.width = videoCanvas.width = videoWidth = width;
         video.height = videoCanvas.height = videoHeight = height;
     }
 
-    function capture(capture) {
+    function capture(captureImgData) {
         if(typeof navigator.getMedia !== 'function') {
             throw new Error('Error: browser does not support getUserMedia');
         }
@@ -36,50 +33,38 @@ var Webcam = function() {
             video.src = url.createObjectURL(localMediaStream);
             video.play();
             video.onloadedmetadata = logError;
-            // videoWidth = video.videoWidth;
-            // videoHeight = video.videoHeight;
 
-            startLoop(15, localMediaStream, capture, video);
+            startCapture(15, localMediaStream, captureImgData, video);
 
         }, logError);
         return true;
     }
 
-    function startLoop(interval, stream, capture, video) {
-        if(typeof interval !== 'number') interval = 20;
-
-        stopRender();
+    function startCapture(interval, stream, captureImgData, video) {
+        stopCapture();
 
         videoTimer = setInterval(function(){
             if(stream) {
                 var w = videoWidth, h = videoHeight;
                 videoCtx.drawImage(video, 0, 0, w, h);
-                capture(videoCtx.getImageData(0, 0, w, h));
+                captureImgData(videoCtx.getImageData(0, 0, w, h));
             }
         }, interval);
     }
 
-    /**
-     * Allow pause and play for ascii rendering
-     */
-    function stopRender() { if(videoTimer) clearInterval(videoTimer); }
+    function stopCapture() { if(videoTimer) clearInterval(videoTimer); }
 
     function snapshot() {
         window.open(videoCanvas.toDataURL(), "_blank");
     }
 
-    // init WxH
-    setVideoDimension(640, 480);
-
     return {
         capture : capture,
-        getVideo : function() { return video; },
-        setVideoDimension: setVideoDimension,
+        getSize : function() { return { width : videoWidth, height : videoHeight} },
+        getVideoElement : function() { return video; },
+        setSize: setSize,
         snapshot : snapshot,
-        width : function() { return videoWidth; },
-        height : function() { return videoHeight; },
-
-        stopRender: stopRender
+        stopCapture: stopCapture
     };
 
 }();
