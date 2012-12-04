@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Convert a picture to C64 style</title>
+		<meta charset="utf-8" />
+		<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/c64.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/dashboard.css"> -->
+    <style>
+
+    body {
+      font-family: Arial;
+      background-image: url('img/red-silk.jpg');
+    }
+    canvas {
+      display: inline-block;
+      xwidth: 200px;
+    }
+
+    html,body {
+      width: 100%;
+      height: 100%;
+      margin:0;
+      padding: 0;
+      position: relative;
+    }
+
+    h1 {
+      xwidth: 100px;
+      xheight: 100px;
+      background-color: rgba(255,128,0,0.8);
+      margin: 50px 100px;
+
+      font-size: 50px;
+      text-align: center;
+      color: red;
+      padding: 10px;
+      border-radius: 50px;
+    }
+
+    p {
+      color: blue ;
+    }
+    button.retrofy {
+      font-size: 32px;
+
+      border:0;
+      background-color: #282828;
+      color: #ddd;
+      border-radius: 15px 15px 15px 15px;
+      padding: 15px 30px;
+      box-shadow: 0px 0px 15px #000;
+      text-shadow: #000 0px 0px 15px ;
+    }
+
+    button.retrofy:hover {
+      text-shadow: rgba(255,255,0,1) 0px 0px 15px;
+      box-shadow: 0px 0px 55px rgba(255,255,0,1);
+    }
+    </style>
+	</head>
+	<body >
+    <h1>Retrofy v0.1 <!-- <img height="100" src="https://twimg0-a.akamaihd.net/profile_images/1638476622/image.jpg" /> --></h1>
+
+  <section style="zoom:0.8; text-align: center;">
+    <button class="retrofy">retrofy me !</button>
+    <p>
+
+      <img crossorigin='Anonymous' src="img/yamaha.jpg" />
+      <img crossorigin='Anonymous' height="400" src="img/color-wheel.jpg" width="400" />
+    </p>
+  </section>
+
+<script src="jquery.retrofy.js"></script>
+<script>
+  $("button").click(function () { $('*').retrofy({ palette: "C64", dashboard:true }); } ) ;
+</script>
+
+	</body>
+</html>

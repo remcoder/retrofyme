@@ -1,0 +1,6 @@
+@font-face {
+  font-family: "c64";
+  src: url("http://localhost:8000/css/font/c64.eot"),
+    url("http://localhost:8000/css/font/c64.woff") format("woff")
+}
+
