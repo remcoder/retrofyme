@@ -1,4 +1,4 @@
-/*! jQuery.Retrofy.js - v0.1.0 - 2012-11-30
+/*! jQuery.Retrofy.js - v0.1.0 - 2012-12-18
 * http://realstuffforabstractpeople.com/
 * Copyright (c) 2012 @remcoder; Licensed MIT */
 ;/**
@@ -3153,7 +3153,7 @@ var Context = function() {
     },
     "13": {
         "name": "LightGreen",
-        "rgb": [160, 160, 160]
+        "rgb": [160, 255, 160]
     },
     "14": {
         "name": "LightBlue",
