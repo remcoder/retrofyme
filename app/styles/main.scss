@@ -4,7 +4,7 @@
 
 body {
     font-family: 'c64';
-    font-size: 10px;
+    font-size: 16px;
 }
 
 .screen-border {
@@ -39,8 +39,30 @@ body {
     padding: 20px;
 }
 
+.c64 {
+    font-family: 'c64';
+    font-size: 16px;
+    background-color: $blue;
+    color: $white;
+    padding: 16px;
+    line-height: 24px;
+
+    a {
+        color: $cyan;
+
+    }
+}
+
 .credits {
     margin-top: 10px;
+    margin-bottom: 16px;
+
+
+    background-color: $lightblue;
+
+    a {
+        color: $blue;
+    }
 }
 
 .snapshot {
@@ -48,3 +70,52 @@ body {
     bottom: 0;
     right:0;
 }
+
+.arrow {
+       &:before {
+            content: "";
+            padding-left: 8px;
+            display: inline-block;
+            position: relative;
+            -moz-transform: rotate(-180deg);
+            -webkit-transform: rotate(-180deg);
+            transform: rotate(-180deg);
+        }
+}
+
+.arrow-up {
+       &:before {
+            content: "";
+            padding-left: 8px;
+            display: inline-block;
+            position: relative;
+            -moz-transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+            padding-top: 10px;
+        }
+}
+
+.intro {
+    width: 640px;
+    margin: auto;
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+button {
+    display: inline-block;
+    font-size: 16px;
+    border: 0;
+    background-color: black;
+    color: #EEE;
+    border-radius: 5px 5px 5px 5px;
+    padding: 10px;
+    font-family: c64;
+}
+
+.explain {
+    position :fixed;
+    top: 50px;
+}
+

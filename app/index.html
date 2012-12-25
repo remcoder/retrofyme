@@ -23,16 +23,34 @@
                 <div id="video-placeholder"></div>
                 <canvas id="target"></canvas>
                 <h1 class="title">Retrofy me</h1>
-
         </div>
 
-        <div class="credits">
-            <a href="#" class="create-snapshot"><span class="mirror"></span> create snapshot</a>
-            <br>
-            <br>
+        <div class="c64 credits">
+            <button class="arrow create-snapshot"
+                title="click to save a snapshot">snapshot</button>
+        </div>
+
+         <div class="c64 intro">
+            <h2>See yourself in 8bit retro style</h2>It uses the actual color palettes of the good ol' C64, ZX Spectrum and NES, for old time's sake :)
+        </div>
+        <div class="c64 intro">
+            <h2>Play with it</h2>
+            You can switch to a different palette using the dashboard in the top-left corner. Click it or just press ESC to open it. You can also tune the picture by adusting the weights of the  individual colors. Lastly, making a snapshot is as easy as clicking the <button class="arrow">snapshot</button> button underneath the picture.
+        </div>
+        <div class="c64 intro">
+            <h2>The way this works is as follows</h2> Each frame in the video feed is captured by copying it to a hidden <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html">canvas element</a> and then retrieving its pixel data (an <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#pixel-manipulation">ImageData object</a>). Then the pixels are processed in 4x4 blocks at a time. The color of the top-left pixel of the block is matched against the current palette. The closest color determines the color of the whole block.
+        </div>
+
+        <div class="c64 intro">
+            <h2>Compatibility</h2>
+            To be retrofied you need a modern browser that supports webcam access through javascript (<a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/">GetUserMedia API</a>). Chrome, Firefox and Opera should work fine. <a href="http://caniuse.com/#search=getusermedia">See for yourself</a> which browsers currently support this.
+        </div>
+
+        <div class="c64 credits">
             by <a href="http://twitter.com/remcoder" >Remco Veldkamp</a> (<a href="http://q42.com">Q42</a>)
-
         </div>
+
+
     </div>
 
         <!--[if lt IE 7]>
@@ -71,6 +89,16 @@
             var retrofy = new Retrofy(context);
             var d = new Retrofy.Dashboard(context);
 
+            var $dashboard = $("#dashboard");
+            $dashboard.find("button").text("retrofy me").attr("title", "click to open dashboard")
+
+            var $exp = $("<div class='explain c64 arrow-up'>click to open dashboard or press ESC</div>");
+            $dashboard.append($exp);
+
+            setTimeout(function() { $exp.fadeOut() }, 8000);
+            $dashboard.click(function() { $exp.hide(); } );
+            $(document).keydown(function(evt) { if (evt.keyCode == 27) $exp.hide(); } );
+
             Webcam.capture(function(imgData) {
                 retrofy.convertImageData(imgData);
                 targetCtx.putImageData(imgData,0,0);
@@ -86,7 +114,7 @@
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            var _gaq=[['_setAccount','UA-21573122-1'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
