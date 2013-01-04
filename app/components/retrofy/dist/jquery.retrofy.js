@@ -1,6 +1,6 @@
-/*! jQuery.Retrofy.js - v0.1.0 - 2012-12-18
+/*! jQuery.Retrofy.js - v0.1.0 - 2013-01-04
 * http://realstuffforabstractpeople.com/
-* Copyright (c) 2012 @remcoder; Licensed MIT */
+* Copyright (c) 2013 @remcoder; Licensed MIT */
 ;/**
  * dat-gui JavaScript Controller Library
  * http://code.google.com/p/dat-gui
@@ -3179,7 +3179,7 @@ var Context = function() {
 (function() {
   "use strict";
 
-  Retrofy.Colors.NES = {
+  Retrofy.Colors.NES1 = {
     "0" : { rgb: [0,0,0] },
     "1" : { rgb: [124,124,124] },
     "2" : { rgb: [0,0,252] },
@@ -3193,7 +3193,11 @@ var Context = function() {
     "10" : { rgb: [0,120,0] },
     "11" : { rgb: [0,104,0] },
     "12" : { rgb: [0,88,0] },
-    "13" : { rgb: [0,64,88] },
+    "13" : { rgb: [0,64,88] }
+};
+
+Retrofy.Colors.NES2 = {
+    "0" : { rgb: [0,0,0] },
     "17" : { rgb: [188,188,188] },
     "18" : { rgb: [0,120,248] },
     "19" : { rgb: [0,88,248] },
@@ -3206,7 +3210,11 @@ var Context = function() {
     "26" : { rgb: [0,184,0] },
     "27" : { rgb: [0,168,0] },
     "28" : { rgb: [0,168,68] },
-    "29" : { rgb: [0,136,136] },
+    "29" : { rgb: [0,136,136] }
+};
+
+Retrofy.Colors.NES3 = {
+    "0" : { rgb: [0,0,0] },
     "33" : { rgb: [248,248,248] },
     "34" : { rgb: [60,188,252] },
     "35" : { rgb: [104,136,252] },
@@ -3220,7 +3228,11 @@ var Context = function() {
     "43" : { rgb: [88,216,84] },
     "44" : { rgb: [88,248,152] },
     "45" : { rgb: [0,232,216] },
-    "46" : { rgb: [120,120,120] },
+    "46" : { rgb: [120,120,120] }
+};
+
+Retrofy.Colors.NES4 = {
+    "0" : { rgb: [0,0,0] },
     "49" : { rgb: [252,252,252] },
     "50" : { rgb: [164,228,252] },
     "51" : { rgb: [184,184,248] },
@@ -3349,10 +3361,19 @@ var Context = function() {
       for (var key in context.palette) {
         var c = createColorController( key );
         colorControllers.push(c);
+
+        var color = context.palette[key];
+        var rgb = color.rgb;
+        var cssColor = "rgb({r},{g},{b})".format({ r:rgb[0], g:rgb[1], b:rgb[2] });
+        var $label = $(c.domElement).find(".slider-fg");
+        $label.css("background-color", cssColor);
+        $(c.domElement).css("width", "100%").prev(".property-name").remove();
+        $(c.domElement).parents("li.cr").css("border", "0");
       }
     }
 
-    var paletteController = gui.add({ palette: null }, "palette" , ["C64", "NES", "ZXSpectrum"] );
+    var paletteController = gui.add({ palette: null }, "palette" , _.keys(Retrofy.Colors) );
+    $(paletteController.domElement).find("select").css("float", "right");
     paletteController.onChange(function(value) {
       context.palette = Retrofy.Colors[value];
 
@@ -3361,8 +3382,9 @@ var Context = function() {
       render();
     });
 
-    var threshholdController = gui.add(context, "threshold" , 0, 88);
-    threshholdController.onChange(_.throttle(render, 200));
+    // var threshholdController = gui.add(context, "threshold" , 0, 88);
+    // threshholdController.onChange(_.throttle(render, 200));
+
 
     resetColorSettings();
     $dashboard.show();

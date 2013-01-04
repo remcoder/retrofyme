@@ -85,10 +85,19 @@
       for (var key in context.palette) {
         var c = createColorController( key );
         colorControllers.push(c);
+
+        var color = context.palette[key];
+        var rgb = color.rgb;
+        var cssColor = "rgb({r},{g},{b})".format({ r:rgb[0], g:rgb[1], b:rgb[2] });
+        var $label = $(c.domElement).find(".slider-fg");
+        $label.css("background-color", cssColor);
+        $(c.domElement).css("width", "100%").prev(".property-name").remove();
+        $(c.domElement).parents("li.cr").css("border", "0");
       }
     }
 
-    var paletteController = gui.add({ palette: null }, "palette" , ["C64", "NES", "ZXSpectrum"] );
+    var paletteController = gui.add({ palette: null }, "palette" , _.keys(Retrofy.Colors) );
+    $(paletteController.domElement).find("select").css("float", "right");
     paletteController.onChange(function(value) {
       context.palette = Retrofy.Colors[value];
 
@@ -97,8 +106,9 @@
       render();
     });
 
-    var threshholdController = gui.add(context, "threshold" , 0, 88);
-    threshholdController.onChange(_.throttle(render, 200));
+    // var threshholdController = gui.add(context, "threshold" , 0, 88);
+    // threshholdController.onChange(_.throttle(render, 200));
+
 
     resetColorSettings();
     $dashboard.show();
