@@ -31,8 +31,15 @@ var Webcam = function() {
 
             onstart();
 
-            var url = window.URL || window.webkitURL;
-            video.src = url.createObjectURL(localMediaStream);
+            if (window.opera)
+            {
+                video.src = localMediaStream;
+            }
+            else
+            {
+                var url = window.URL || window.webkitURL;
+                video.src = url.createObjectURL(localMediaStream);
+            }
             video.play();
             video.onloadedmetadata = logError;
 
