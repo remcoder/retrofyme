@@ -7,7 +7,6 @@ var Webcam = function() {
         navigator.msGetUserMedia;
 
     var video = document.createElement('video');
-    // video.autoplay = "autoplay";
     var videoCanvas = document.createElement('canvas');
     var videoCtx = videoCanvas.getContext('2d');
     var videoWidth, videoHeight, videoTimer;
