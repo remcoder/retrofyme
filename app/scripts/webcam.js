@@ -1,5 +1,6 @@
 
 var Webcam = function() {
+    "use strict";
 
     navigator.getMedia = navigator.getUserMedia ||
         navigator.webkitGetUserMedia ||

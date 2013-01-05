@@ -8,7 +8,7 @@ body {
 }
 
 .screen-border {
-    background-color: $lightblue;
+    background-color: $lgrey;
 }
 
 .container {
@@ -20,7 +20,7 @@ body {
     background-color: $blue;
     margin: auto;
     position: relative;
-    padding: 20px 40px;
+    padding: 40px;
 }
 
 
@@ -33,34 +33,30 @@ body {
 .title {
     position: absolute;
     width: 600px;
-    bottom: 0;
+    bottom: 40px;
+    left: 60px;
     -webkit-user-select: none;
     -moz-user-select: none;
     text-align: left;
-    padding: 20px;
 }
 
 .c64 {
     font-family: 'c64';
     font-size: 16px;
-    background-color: $blue;
+    background-color: $lgrey;
     color: $white;
     padding: 16px;
     line-height: 24px;
 
     a {
-        color: $cyan;
-
+        color: $orange;
     }
 }
 
 .credits {
     margin-top: 10px;
     margin-bottom: 16px;
-
-
-    background-color: $lightblue;
-
+    color: $darkgrey;
     a {
         color: $blue;
     }
@@ -102,6 +98,7 @@ body {
     margin: auto;
     text-align: left;
     margin-bottom: 24px;
+    background-color: $darkgrey;
 }
 
 button {
@@ -118,5 +115,45 @@ button {
 .explain {
     position :fixed;
     top: 50px;
+    background-color: $blue;
 }
 
+.social-media-panel {
+    position: fixed;
+    top: 0;
+    right: 10px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.7);
+    width: 112px;
+    height: 68px;
+    overflow: hidden;
+
+    border-radius: 0px 0px 5px 5px;
+
+    .fb-like {
+        top: -2px;
+    }
+}
+
+.firefox-warning {
+    position: fixed;
+    right:10px;
+    top: 100px;
+    width: 220px;
+
+    background-color: $red;
+
+    a {
+        color: $lgrey;
+    }
+    .close-button {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        color: $black;
+
+        &:hover {
+            color: $yellow;
+        }
+    }
+}
