@@ -1,7 +1,3 @@
-- uitleg tekst
+- mirror
 - requestAnimationFrame?
 - faster color matching algorith (octree!)
-- no-support message
-- credits
-- google analytics
-- static noise when webcam is not (yet) allowed
