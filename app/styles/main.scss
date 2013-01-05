@@ -32,10 +32,11 @@ body {
 
 .title {
     position: absolute;
-    color: $green;
+    width: 600px;
     bottom: 0;
     -webkit-user-select: none;
     -moz-user-select: none;
+    text-align: left;
     padding: 20px;
 }
 

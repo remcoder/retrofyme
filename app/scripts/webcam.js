@@ -22,12 +22,14 @@ var Webcam = function() {
         video.height = videoCanvas.height = videoHeight = height;
     }
 
-    function capture(captureImgData) {
+    function capture(captureImgData, onstart) {
         if(typeof navigator.getMedia !== 'function') {
-            throw new Error('Error: browser does not support getUserMedia');
+            throw new Error('browser does not support getUserMedia');
         }
 
         navigator.getMedia({video: true}, function(localMediaStream){
+
+            onstart();
 
             var url = window.URL || window.webkitURL;
             video.src = url.createObjectURL(localMediaStream);
