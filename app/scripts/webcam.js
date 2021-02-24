@@ -35,9 +35,7 @@ var Webcam = function() {
             {
                 video.src = localMediaStream;
             }
-            else if (navigator.mozGetUserMedia) {
-                video.mozSrcObject = localMediaStream;
-            }
+            
             else
             {
                 video.srcObject = localMediaStream;
