@@ -1,3 +1,0 @@
-- mirror
-- requestAnimationFrame?
-- faster color matching algorith (octree!)
