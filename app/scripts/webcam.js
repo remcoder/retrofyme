@@ -40,8 +40,7 @@ var Webcam = function() {
             }
             else
             {
-                var url = window.URL || window.webkitURL;
-                video.src = url.createObjectURL(localMediaStream);
+                video.srcObject = localMediaStream;
             }
             video.play();
             video.onloadedmetadata = logError;
