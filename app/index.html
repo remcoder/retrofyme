@@ -1,16 +1,11 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Retrofy Me - See yourself in 8bit retro style</title>
+        <title>Retrofy Me - See yourself in 8-bit retro style</title>
         <meta name="description" content="See yourself in 8bit retro style. It uses the actual color palettes of the  C64, ZX Spectrum and NES :)">
         <meta name="viewport" content="width=device-width">
-
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <link rel="stylesheet" href="styles/c64.css">
         <link rel="stylesheet" href="styles/main.css">
@@ -27,13 +22,8 @@
 
         <div class="c64 credits">
 
-
-
         <button class="arrow create-snapshot"
                 title="click to save a snapshot">snapshot</button>
-
-
-
 
         </div>
 
@@ -51,7 +41,7 @@
 
         <div class="c64 intro">
             <h2>Compatibility</h2>
-            To be retrofied you need a modern browser that supports webcam access through javascript (<a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/">GetUserMedia API</a>). Chrome and Opera should work fine. Firefox users should enable the flag <tt>media.navigator.enabled</tt> in about:config.
+            To be retrofied you need a modern browser that supports webcam access through javascript (<a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/">GetUserMedia API</a>). 
             <br><br>
             <a href="http://caniuse.com/#search=getusermedia">See for yourself</a> which browsers currently support this.
         </div>
@@ -69,26 +59,6 @@
 
 
     </div>
-
-    <!-- <div class="c64 social-media-panel">
-        <a href="https://twitter.com/share" class="twitter-share-button"
-                data-lang="en"
-                data-text="Retrofy Me - Use your webcam to see yourself in retro 8bit style."
-                data-related="remcoder"
-                data-via="remcoder"
-                data-count="vertical">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-        <div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false"></div>
-    </div> -->
-
-    <div class="firefox-warning hidden c64">
-        <div class="close-button">X</div>
-        Firefox users should enable the flag <tt>media.navigator.enabled</tt> in about:config.
-    </div>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-        <![endif]-->
 
         <!-- Add your site or application content here -->
 
@@ -156,7 +126,6 @@
 
                 $target.attr("title", "click for original");
 
-                $(".firefox-warning").hide();
             }
 
             function createDashboard() {
@@ -184,10 +153,7 @@
             var noise = new Noise($target[0]);
             noise.animate();
 
-            // warning for FF users
-            if ( navigator.userAgent.match(/Firefox/) )
-                $(".firefox-warning").show().click(function() { $(this).hide(); } );
-
+            
         </script>
 
         <script>
