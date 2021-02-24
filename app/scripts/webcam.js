@@ -2,10 +2,7 @@
 var Webcam = function() {
     "use strict";
 
-    navigator.getMedia = navigator.getUserMedia ||
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia ||
-        navigator.msGetUserMedia;
+    navigator.getMedia = navigator.mediaDevices.getUserMedia.bind(navigator);   
 
     var video = document.createElement('video');
     var videoCanvas = document.createElement('canvas');
@@ -22,12 +19,12 @@ var Webcam = function() {
         video.height = videoCanvas.height = videoHeight = height;
     }
 
-    function capture(captureImgData, onstart) {
+    async function capture(captureImgData, onstart) {
         if(typeof navigator.getMedia !== 'function') {
             throw new Error('browser does not support getUserMedia');
         }
 
-        navigator.getMedia({video: true}, function(localMediaStream){
+        var onSuccess = function(localMediaStream){
 
             onstart();
 
@@ -35,7 +32,6 @@ var Webcam = function() {
             {
                 video.src = localMediaStream;
             }
-            
             else
             {
                 video.srcObject = localMediaStream;
@@ -45,7 +41,10 @@ var Webcam = function() {
 
             startCapture(15, localMediaStream, captureImgData, video);
 
-        }, logError);
+        };
+        
+        var localMediaStream = await navigator.mediaDevices.getUserMedia({video: true});
+        onSuccess(localMediaStream);
         return true;
     }
 
