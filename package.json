@@ -1,7 +1,11 @@
 {
-  "author": "",
-  "name": "",
-  "version": "0.0.0",
-  "dependencies": {},
-  "devDependencies": {}
+  "author": "R.Veldkamp",
+  "name": "retrofy_me",
+  "version": "0.0.1",
+  "devDependencies": {
+    "sass": "^1.32.8"
+  },
+  "scripts": {
+    "watch" : "npx sass --watch app/styles"
+  }
 }

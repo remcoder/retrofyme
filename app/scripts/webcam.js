@@ -43,7 +43,7 @@ var Webcam = function() {
                 video.srcObject = localMediaStream;
             }
             video.play();
-            video.onloadedmetadata = logError;
+            // video.onloadedmetadata = logError;
 
             startCapture(15, localMediaStream, captureImgData, video);
 

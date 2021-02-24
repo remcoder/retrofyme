@@ -14,7 +14,6 @@
 
         <link rel="stylesheet" href="styles/c64.css">
         <link rel="stylesheet" href="styles/main.css">
-        <script src="scripts/vendor/modernizr.min.js"></script>
     </head>
     <body class="screen-border">
 
@@ -71,7 +70,7 @@
 
     </div>
 
-    <div class="c64 social-media-panel">
+    <!-- <div class="c64 social-media-panel">
         <a href="https://twitter.com/share" class="twitter-share-button"
                 data-lang="en"
                 data-text="Retrofy Me - Use your webcam to see yourself in retro 8bit style."
@@ -81,7 +80,7 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
         <div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false"></div>
-    </div>
+    </div> -->
 
     <div class="firefox-warning hidden c64">
         <div class="close-button">X</div>
@@ -97,7 +96,7 @@
         <script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>
         <script src="scripts/webcam.js"></script>
         <script src="scripts/noise.js"></script>
-        <script src="components/retrofy/dist/jquery.retrofy.min.js"></script>
+        <script src="scripts/jquery.retrofy.min.js"></script>
         <script type="text/javascript">
             var $target = $("#target").attr("title", "Accessing webcam...");
 
@@ -140,8 +139,6 @@
 
             function onStartCapture() {
                 noise.stop();
-
-
 
                 $title.fadeOut(200, function() {
                         $title
@@ -200,13 +197,13 @@
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
 
-        <div id="fb-root"></div>
+        <!-- <div id="fb-root"></div>
         <script>(function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
           if (d.getElementById(id)) return;
           js = d.createElement(s); js.id = id;
           js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=185975018212030";
           fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
+        }(document, 'script', 'facebook-jssdk'));</script> -->
     </body>
 </html>
