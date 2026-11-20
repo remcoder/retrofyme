@@ -10,6 +10,7 @@
     "build": "pnpm run build:js && pnpm run build:css",
     "build:js": "terser lib/*.js js/utils.js js/context.js js/retrofy.js js/Retrofy.Colors.*.js js/Retrofy.dashboard.js js/jquery.retrofy.js -c -m --comments \"/^!/\" -o app/scripts/jquery.retrofy.min.js",
     "build:css": "sass --no-source-map app/styles/main.scss app/styles/main.css",
-    "watch": "sass --watch app/styles/main.scss:app/styles/main.css"
+    "watch": "sass --watch app/styles/main.scss:app/styles/main.css",
+    "serve": "python3 -m http.server 8000 --bind 127.0.0.1 --directory app"
   }
 }
