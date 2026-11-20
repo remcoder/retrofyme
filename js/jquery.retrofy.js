@@ -1,4 +1,4 @@
-/*global zepQuery,Retrofy,Context */
+/*global jQuery,Retrofy,Context */
 
 (function($) {
   "use strict";
@@ -29,4 +29,4 @@
 
   };
 
-}(zepQuery));
+}(jQuery));

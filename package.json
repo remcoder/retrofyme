@@ -8,6 +8,6 @@
   },
   "scripts": {
     "watch": "npx sass --watch app/styles",
-    "build": "terser lib/*.js js/zepQuery.js js/utils.js js/context.js js/retrofy.js js/Retrofy.Colors.*.js js/Retrofy.dashboard.js js/jquery.retrofy.js -c -m --comments \"/^!/\" -o app/scripts/jquery.retrofy.min.js"
+    "build": "terser lib/*.js js/utils.js js/context.js js/retrofy.js js/Retrofy.Colors.*.js js/Retrofy.dashboard.js js/jquery.retrofy.js -c -m --comments \"/^!/\" -o app/scripts/jquery.retrofy.min.js"
   }
 }

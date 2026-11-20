@@ -1,4 +1,4 @@
-/*global zepQuery,dat,_, Retrofy */
+/*global jQuery,dat,_, Retrofy */
 
 (function ($) {
   "use strict";
@@ -118,4 +118,4 @@
 
   Retrofy.Dashboard = Dashboard;
 
-}(zepQuery));
+}(jQuery));

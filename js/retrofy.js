@@ -1,4 +1,4 @@
-/*global  document, zepQuery, _, console, RGBColor, Utils */
+/*global  document, jQuery, _, console, RGBColor, Utils */
 (function($) {
   "use strict";
 
@@ -241,5 +241,5 @@
   window.Retrofy = Retrofy;
   Retrofy.Colors = {};
 
-}(zepQuery));
+}(jQuery));
 
