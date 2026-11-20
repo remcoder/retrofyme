@@ -35,25 +35,20 @@
         </div>
         <div class="c64 intro">
             <h2>How it works</h2>
-            Using the <a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/">GetUserMedia API</a> (part of <a href="http://www.webrtc.org/">WebRTC</a>) a video stream is connected to a hidden <a href="http://html5doctor.com/the-video-element/">video element</a>. Several times a second, a frame in the video feed is then captured by copying it to a hidden <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html">canvas element</a> and then retrieving its pixel data (an <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#pixel-manipulation">ImageData object</a>). Next, the pixels are processed in 4x4 blocks at a time. The color of the top-left pixel of the block is matched against the current palette. The closest color determines the color of the whole block.
+            Using the <a href="https://www.html5rocks.com/en/tutorials/getusermedia/intro/">GetUserMedia API</a> (part of <a href="https://www.webrtc.org/">WebRTC</a>) a video stream is connected to a hidden <a href="http://html5doctor.com/the-video-element/">video element</a>. Several times a second, a frame in the video feed is then captured by copying it to a hidden <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html">canvas element</a> and then retrieving its pixel data (an <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#pixel-manipulation">ImageData object</a>). Next, the pixels are processed in 4x4 blocks at a time. The color of the top-left pixel of the block is matched against the current palette. The closest color determines the color of the whole block.
         </div>
 
         <div class="c64 intro">
             <h2>Compatibility</h2>
-            To be retrofied you need a modern browser that supports webcam access through javascript (<a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/">GetUserMedia API</a>). 
+            To be retrofied you need a modern browser that supports webcam access through javascript (<a href="https://www.html5rocks.com/en/tutorials/getusermedia/intro/">GetUserMedia API</a>). 
             <br><br>
-            <a href="http://caniuse.com/#search=getusermedia">See for yourself</a> which browsers currently support this.
+            <a href="https://caniuse.com/#search=getusermedia">See for yourself</a> which browsers currently support this.
         </div>
 
         <div class="c64 credits">
-            by <a href="http://twitter.com/remcoder" >Remco Veldkamp</a> /
-            <a href="http://twitter.com/remcoder" >@remcoder</a>
-
-            <br><a href="http://blog.realstuffforabstractpeople.com/">blog</a>
-            <a href="http://realstuffforabstractpeople.com/">the lab</a>
-            <a href="http://github.com/remcoder">github</a>
+            by <a href="https://www.linkedin.com/in/remco-veldkamp-66a4b04/" >Remco Veldkamp</a> (<a href="https://github.com/remcoder">github</a>)
             <br>
-            <a href="http://realstuffforabstractpeople.com/">realstuffforabstractpeople.com</a>
+            <a href="https://realstuffforabstractpeople.com/">realstuffforabstractpeople.com</a>
         </div>
 
 
@@ -160,14 +155,6 @@
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script> -->
-
-        <!-- <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=185975018212030";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script> -->
+        
     </body>
 </html>
