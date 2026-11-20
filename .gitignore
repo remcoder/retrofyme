@@ -16,3 +16,6 @@ venv/
 .vscode/
 !.env.example
 !.env.sample
+
+# build output (npm run build)
+app/scripts/jquery.retrofy.min.js
