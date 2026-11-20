@@ -3,6 +3,7 @@
 (function() {
   "use strict";
 
+  // the CCS64 emulator palette (VICE data/C64/ccs64.vpl)
   Retrofy.Colors.C64 = {
     "0": {
         "name": "Black",
@@ -46,7 +47,7 @@
     },
     "10": {
         "name": "Pink",
-        "rgb": [250, 160, 160]
+        "rgb": [255, 160, 160]
     },
     "11": {
         "name": "DarkGrey",
@@ -58,7 +59,7 @@
     },
     "13": {
         "name": "LightGreen",
-        "rgb": [160, 160, 160]
+        "rgb": [160, 255, 160]
     },
     "14": {
         "name": "LightBlue",
