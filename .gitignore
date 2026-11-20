@@ -13,5 +13,6 @@ __pycache__/
 venv/
 *.log
 .idea/
+.vscode/
 !.env.example
 !.env.sample
