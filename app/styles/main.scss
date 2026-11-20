@@ -1,5 +1,5 @@
-@import "c64.scss";
-@import "tools.css";
+@use "tools";
+@use "c64" as *;
 
 body {
     font-family: 'c64';
